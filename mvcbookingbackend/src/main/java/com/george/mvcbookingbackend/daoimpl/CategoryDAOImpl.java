@@ -3,9 +3,12 @@ package com.george.mvcbookingbackend.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.george.mvcbookingbackend.dao.CategoryDAO;
 import com.george.mvcbookingbackend.dto.Category;
 
+@Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
 
 	private static List<Category> categories = new ArrayList<>();
