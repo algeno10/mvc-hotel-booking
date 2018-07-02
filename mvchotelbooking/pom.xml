@@ -8,7 +8,15 @@
   <name>mvchotelbooking Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-  
+    
+    <!-- Linking backend project -->
+    <dependency>
+    		<groupId>com.george</groupId>
+  			<artifactId>mvcbookingbackend</artifactId>
+  			<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    
     <!-- Java EE API-->
     <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 	<dependency>
