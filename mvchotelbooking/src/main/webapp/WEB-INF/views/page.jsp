@@ -21,7 +21,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Online Hotel - ${title} </title>
+    
+    <script>
+          window.menu = '${title}';
+    </script>
 
     <!-- Bootstrap Core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +50,20 @@
 
     <!-- Page Content -->
     <!-- Loading the home content -->
-    <%@include file="home.jsp" %>
+    <c:if test="${userClickHome == true}">
+     <%@include file="home.jsp" %>
+    </c:if>
+    
+    
+    <!-- Load only when  user clicks about-->
+    <c:if test="${userClickAbout == true}">
+     <%@include file="about.jsp" %>
+    </c:if>
+    
+    <!-- Load only when  user clicks contact-->
+    <c:if test="${userClickContact == true}">
+     <%@include file="contact.jsp" %>
+    </c:if>
     
 
     <!-- Footer comes here -->
