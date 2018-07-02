@@ -43,12 +43,14 @@
 </head>
 
 <body>
-
+    
+    <div class="wrapper">
     <!-- Navigation -->
     <%@include file="./shared/navbar.jsp" %>
 
-
+    
     <!-- Page Content -->
+    <div class="content">
     <!-- Loading the home content -->
     <c:if test="${userClickHome == true}">
      <%@include file="home.jsp" %>
@@ -64,7 +66,7 @@
     <c:if test="${userClickContact == true}">
      <%@include file="contact.jsp" %>
     </c:if>
-    
+    </div>
 
     <!-- Footer comes here -->
     <%@include file="./shared/footer.jsp" %>
@@ -77,7 +79,11 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="${js}/bootstrap.min.js"></script>
-
+    
+    <!-- Self coded java script -->
+    <script src="${js}/myapp.js"></script>
+    
+    </div>
 </body>
 
 </html>
