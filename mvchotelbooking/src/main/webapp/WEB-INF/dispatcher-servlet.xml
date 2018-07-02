@@ -12,12 +12,14 @@
    ">
    
    <context:component-scan base-package="com.george.booking.controller"></context:component-scan>
+   <context:component-scan base-package="com.george.mvcbookingbackend.daoimpl"></context:component-scan>
    
-   <bean id="viewResolver"
-   class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-      <property name="prefix" value="/WEB-INF/views/"/>
-      <property name="suffix" value=".jsp"/>
-   </bean>
+   
+ <bean id="viewResolver" 
+ class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+   <property name="prefix" value="/WEB-INF/views/"/>
+   <property name="suffix" value=".jsp"/>
+ </bean> 
    
    <!-- Loading Static Resources -->
    <mvc:annotation-driven/>
