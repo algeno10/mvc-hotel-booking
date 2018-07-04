@@ -10,7 +10,7 @@ import com.george.mvcbookingbackend.dto.Category;
 
 @Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
-
+    
 	private static List<Category> categories = new ArrayList<>();
 	
 	static {

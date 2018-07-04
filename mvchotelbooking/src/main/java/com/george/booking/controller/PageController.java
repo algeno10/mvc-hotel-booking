@@ -18,8 +18,8 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Home");
 		
-		//passing the categories
-		mv.addObject("categories", categoryDAO);
+		//passing the list of categories
+		mv.addObject("categories", categoryDAO.list());
 		
 		mv.addObject("userClickHome", true);
 		return mv;
@@ -44,6 +44,24 @@ public class PageController {
 		mv.addObject("userClickContact", true);
 		return mv;
 	}
+	
+	/*
+	 * Methods to load all the property and based on category
+	 * */
+	@RequestMapping(value = "/show/all/property")
+	public ModelAndView showAllProperty() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "All Property");
+		
+		//passing the list of categories
+		mv.addObject("categories", categoryDAO.list());
+		
+		mv.addObject("userClickHome", true);
+		return mv;
+	}
+	
+	
+	
 
 
 }
