@@ -70,6 +70,13 @@
      <%@include file="contact.jsp" %>
     </c:if>
     </div>
+    
+    
+    <!-- Load only when  user clicks contact-->
+    <c:if test="${userClickAllProperty == true or userClickCategoryProperty == true}">
+     <%@include file="listProperty.jsp" %>
+    </c:if>
+    </div>
 
     <!-- Footer comes here -->
     <%@include file="./shared/footer.jsp" %>
