@@ -1,4 +1,4 @@
-package com.george.bookingbackend;
+package com.george.mvcbookingbackend;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

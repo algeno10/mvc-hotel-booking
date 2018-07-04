@@ -1,4 +1,4 @@
-package com.george.bookingbackend;
+package com.george.mvcbookingbackend;
 
 /**
  * Hello world!
