@@ -27,6 +27,11 @@ public class Category {
 	@Column(name = "is_active")
 	private boolean active = true;
 	
+	//Default constructor
+	public Category() {
+		
+	}
+	
 	
 	//To String method
 	@Override
