@@ -1,14 +1,16 @@
 package com.george.mvcbookingbackend.daoimpl;
-
 import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.george.mvcbookingbackend.dao.PropertyDAO;
 import com.george.mvcbookingbackend.dto.Property;
 
+
+@Repository("propertyDAO")
 @Transactional
 public class PropertyDAOImpl implements PropertyDAO {
     
@@ -83,23 +85,40 @@ public class PropertyDAOImpl implements PropertyDAO {
 		}
 		return false;
 	}
-
+    
+	/*
+	 * LIST ALL ACTIVE PROPERTIES
+	 * */
 	@Override
 	public List<Property> listActiveProperties() {
-		// TODO Auto-generated method stub
-		return null;
+		String selectActiveProperties = "FROM Property WHERE active = :active";
+		return sessionFactory.getCurrentSession()
+				.createQuery(selectActiveProperties, Property.class)
+				.setParameter("active", true)
+				.getResultList();
 	}
-
+    
+    /*
+     * LIST ACTIVE PROPERTIES BY CATEGORY
+     * */
 	@Override
 	public List<Property> listActivePropertyByCategory(int categoryId) {
-		// TODO Auto-generated method stub
-		return null;
+		String selectActivePropertiesByCategory = "FROM Property WHERE active = :active AND categoryId = :categoryId";
+		return sessionFactory.getCurrentSession()
+				.createQuery(selectActivePropertiesByCategory, Property.class)
+				.setParameter("active", true)
+				.setParameter("categoryId", categoryId)
+				.getResultList();
 	}
 
 	@Override
 	public List<Property> getLatestActiveProperty(int count) {
-		// TODO Auto-generated method stub
-		return null;
+		return sessionFactory.getCurrentSession()
+				.createQuery("FROM Property WHERE active = :active ORDER BY id", Property.class)
+				.setParameter("active", true)
+				.setFirstResult(0)
+				.setMaxResults(count)
+				.getResultList();
 	}
 
 }
