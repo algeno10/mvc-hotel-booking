@@ -40,22 +40,47 @@ public class PropertyDAOImpl implements PropertyDAO {
 				.getResultList();
 	}
 	
-
+    /*
+     * INSERT
+     * */
 	@Override
 	public boolean add(Property property) {
-		// TODO Auto-generated method stub
+		try {
+			sessionFactory.getCurrentSession()
+			.persist(property);
+			return true;
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
 		return false;
 	}
-
+    
+	/*
+	 * UPDATE 
+	 * */
 	@Override
 	public boolean update(Property property) {
-		// TODO Auto-generated method stub
+		try {
+			sessionFactory.getCurrentSession()
+			.update(property);
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
 		return false;
 	}
 
+	/*
+	 * DELETE
+	 * */
 	@Override
 	public boolean delete(Property property) {
-		// TODO Auto-generated method stub
+		try {
+			property.setActive(false);
+			//call the update method
+			return this.update(property);
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
 		return false;
 	}
 
