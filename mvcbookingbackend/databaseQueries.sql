@@ -11,3 +11,5 @@ CREATE TABLE category(
 
 
 INSERT INTO category(name, description, image_url, is_active) VALUES ('Hotel', 'This is a description for the hotel category', 'CAT_1.png', true);
+INSERT INTO category(name, description, image_url, is_active) VALUES ('Guest House', 'This is a description for the guest house category', 'CAT_2.png', true);
+INSERT INTO category(name, description, image_url, is_active) VALUES ('Lodge', 'This is a description for the lodge category', 'CAT_3.png', true);
