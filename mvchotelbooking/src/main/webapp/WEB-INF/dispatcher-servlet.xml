@@ -12,7 +12,7 @@
    ">
    
    <context:component-scan base-package="com.george.booking.controller"></context:component-scan>
-   <context:component-scan base-package="com.george.mvcbookingbackend.daoimpl"></context:component-scan>
+   <context:component-scan base-package="com.george.mvcbookingbackend"></context:component-scan>
    
    
  <bean id="viewResolver" 
