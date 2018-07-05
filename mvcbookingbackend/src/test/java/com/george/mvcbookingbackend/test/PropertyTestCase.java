@@ -57,5 +57,24 @@ public class PropertyTestCase {
     			4, propertyDAO.list().size());
     	
     } */
+    
+    @Test
+    public void testListActiveProperties() {
+    	assertEquals("Something went wrong while updating the existing record",
+    			3, propertyDAO.listActiveProperties().size());
+    }
+    
+    @Test
+    public void testListActivePropertiesByCategory() {
+    	assertEquals("Something went wrong while updating the existing record",
+    			1, propertyDAO.listActivePropertyByCategory(2).size());
+    	assertEquals("Something went wrong while updating the existing record",
+    			1, propertyDAO.listActivePropertyByCategory(1).size());
+    }
 
+    @Test
+    public void testGetLatestActiveProperty() {
+    	assertEquals("Something went wrong while updating the existing record",
+    			3, propertyDAO.getLatestActiveProperty(3).size());
+    }
 }
