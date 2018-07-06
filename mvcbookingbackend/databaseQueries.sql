@@ -49,7 +49,7 @@ CREATE TABLE property(
     id IDENTITY,
     address VARCHAR(200),
     name VARCHAR(50),
-    type VARCHAR(50),
+    code VARCHAR(20),
     description VARCHAR(1000),
     booking_price DECIMAL (10,2),
     quantity INT,
@@ -63,16 +63,16 @@ CREATE TABLE property(
     CONSTRAINT fk_property_client_id FOREIGN KEY (client_id) REFERENCES user_detail (id),
 );
 
-INSERT INTO property (address, name, type, description, booking_price, quantity, is_active, category_id, client_id)
-VALUES ('Corner of Rivonia Road and Daisy Street, Sandton, 2010 Johannesburg, South Africa', 'Radisson Blu Hotel Sandton', 'hotel', 'The Radisson Blu Sandton hotel is situated in the Sandton business district with close proximity to the JSE and Sandton City Shopping Centre. Access to our iconic hotel is easy via the Sandton Gautrain Station which is located 400m from the property. We offer the largest fitness megaplex in Sandton spanning over 5500sqm coupled with an indoor running track.',
+INSERT INTO property (address, name, code, description, booking_price, quantity, is_active, category_id, client_id)
+VALUES ('Corner of Rivonia Road and Daisy Street, Sandton, 2010 Johannesburg, South Africa', 'Radisson Blu Hotel Sandton', 'PROABC123DEFX', 'The Radisson Blu Sandton hotel is situated in the Sandton business district with close proximity to the JSE and Sandton City Shopping Centre. Access to our iconic hotel is easy via the Sandton Gautrain Station which is located 400m from the property. We offer the largest fitness megaplex in Sandton spanning over 5500sqm coupled with an indoor running track.',
 1611, 10, true, 1, 2);
 
-INSERT INTO property (address, name, type, description, booking_price, quantity, is_active, category_id, client_id)
-VALUES ('15A Marion Street, Sandown, Sandton, Sandton, 2196. Johannesburg, South Africa', 'Marion Lodge', 'lodge', 'This 4-star lodge has a scenic garden with a pool and is located a 5-minute drive from Sandton City. All air-conditioned accommodation offers free Wi-Fi and garden views.',
+INSERT INTO property (address, name, code, description, booking_price, quantity, is_active, category_id, client_id)
+VALUES ('15A Marion Street, Sandown, Sandton, Sandton, 2196. Johannesburg, South Africa', 'Marion Lodge', 'PRODEF123DEFX', 'This 4-star lodge has a scenic garden with a pool and is located a 5-minute drive from Sandton City. All air-conditioned accommodation offers free Wi-Fi and garden views.',
 1611, 10, true, 3, 3);
 
-INSERT INTO property (address, name, type, description, booking_price, quantity, is_active, category_id, client_id)
-VALUES ('13, 4th street, Linden, Randburg, 2195 Johannesburg, South Africa', 'Linden Guest House', 'guest house', 'Randburg is a great choice for travelers interested in city trips, restaurants and nightlife.',
+INSERT INTO property (address, name, code, description, booking_price, quantity, is_active, category_id, client_id)
+VALUES ('13, 4th street, Linden, Randburg, 2195 Johannesburg, South Africa', 'Linden Guest House', 'PROPQR123WGTX', 'Randburg is a great choice for travelers interested in city trips, restaurants and nightlife.',
 548.35, 10, true, 2, 4);
 
 

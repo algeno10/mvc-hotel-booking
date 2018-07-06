@@ -1,4 +1,6 @@
 package com.george.mvcbookingbackend.dto;
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,8 @@ public class Property {
 	private int id;
 	private String address;
 	private String name;
-	private String type;
+	private String code;
+	@JsonIgnore
 	private String description;
 	@Column(name = "booking_price")
 	private double bookingPrice;
@@ -35,12 +38,23 @@ public class Property {
 	private int views;
 	
 	
+	//Constructor to generate the code
+	public Property(){
+	     this.code = "PRO" + UUID.randomUUID().toString().substring(26).toUpperCase();
+	}
+	
 	//Getter and Setter Methods
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getAddress() {
 		return address;
@@ -54,12 +68,7 @@ public class Property {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+
 	public String getDescription() {
 		return description;
 	}

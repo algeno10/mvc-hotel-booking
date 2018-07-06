@@ -47,7 +47,12 @@ $(function() {
 				dataSrc: ''
 			},
 			columns: [
-				
+				{
+					data: 'code',
+					mRender: function(data, type , row){
+						return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg"/>';
+					}
+				},
 				{
 					data: 'name'
 				},
@@ -65,10 +70,13 @@ $(function() {
 				},
 				{
 					data: 'id',
+					bSortable: false,
 					mRender: function(data, type , row){
 						var str ='';
-						str += '<a href="'+window.contextRoot+ '/show/'+data+'/property">View</a>'
-						str += '<a href="'+window.contextRoot+ '/booking/add/'+data+'/property">Make Booking</a>'
+						str += '<a href="'+window.contextRoot+ '/show/'+data+'/property" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
+						str += '<a href="'+window.contextRoot+ '/booking/add/'+data+'/property" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>';
+					    
+						return str;
 					}
 					
 				}
