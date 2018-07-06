@@ -55,10 +55,22 @@ $(function() {
 					data: 'address'
 				},
 				{
-					data: 'bookingPrice'
+					data: 'bookingPrice',
+					mRender: function(data, type, row){
+						return 'R' + data
+					}
 				},
 				{
 					data: 'quantity'
+				},
+				{
+					data: 'id',
+					mRender: function(data, type , row){
+						var str ='';
+						str += '<a href="'+window.contextRoot+ '/show/'+data+'/property">View</a>'
+						str += '<a href="'+window.contextRoot+ '/booking/add/'+data+'/property">Make Booking</a>'
+					}
+					
 				}
 			]
 			

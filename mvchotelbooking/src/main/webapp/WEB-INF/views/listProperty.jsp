@@ -56,13 +56,27 @@
                          
                              <th>Name</th>
                              <th>Address</th>
-                             <th>Booking Price</th>
+                             <th>Price</th>
                              <th>Room(s) Available</th>
+                             <th></th>
                              
                          </tr>
                          
                        </thead>
-                   
+                       
+                       <tfoot>
+                       
+                         <tr>
+                         
+                             <th>Name</th>
+                             <th>Address</th>
+                             <th>Price</th>
+                             <th>Room(s) Available</th>
+                             <th></th>
+                             
+                         </tr>
+                         
+                       </tfoot>
                    </table>
                    
               </div>
