@@ -32,6 +32,9 @@
     
     <!-- Bootstrap Readable Theme -->
     <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+    
+    <!-- DataTables Bootstrap -->
+    <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="${css}/hotel-homepage.css" rel="stylesheet">
@@ -46,36 +49,38 @@
 </head>
 
 <body>
-    
+
+    <div class="se-pre-con"></div>
     <div class="wrapper">
+    
     <!-- Navigation -->
     <%@include file="./shared/navbar.jsp" %>
 
     
     <!-- Page Content -->
     <div class="content">
-    <!-- Loading the home content -->
-    <c:if test="${userClickHome == true}">
-     <%@include file="home.jsp" %>
-    </c:if>
+    	<!-- Loading the home content -->
+    	<c:if test="${userClickHome == true}">
+     		<%@include file="home.jsp" %>
+    	</c:if>
     
     
-    <!-- Load only when  user clicks about-->
-    <c:if test="${userClickAbout == true}">
-     <%@include file="about.jsp" %>
-    </c:if>
+    	<!-- Load only when  user clicks about-->
+    	<c:if test="${userClickAbout == true}">
+     		<%@include file="about.jsp" %>
+    	</c:if>
     
-    <!-- Load only when  user clicks contact-->
-    <c:if test="${userClickContact == true}">
-     <%@include file="contact.jsp" %>
-    </c:if>
-    </div>
+    	<!-- Load only when  user clicks contact-->
+    	<c:if test="${userClickContact == true}">
+     		<%@include file="contact.jsp" %>
+    	</c:if>
+   
     
     
-    <!-- Load only when  user clicks contact-->
-    <c:if test="${userClickAllProperty == true or userClickCategoryProperty == true}">
-     <%@include file="listProperty.jsp" %>
-    </c:if>
+    	<!-- Load only when  user clicks contact-->
+    	<c:if test="${userClickAllProperty == true or userClickCategoryProperty == true}">
+     		<%@include file="listProperty.jsp" %>
+    	</c:if>
     </div>
 
     <!-- Footer comes here -->
