@@ -53,7 +53,8 @@
                        <thead>
                        
                          <tr>
-                         
+                             
+                             <th></th>
                              <th>Name</th>
                              <th>Address</th>
                              <th>Price</th>
@@ -67,7 +68,8 @@
                        <tfoot>
                        
                          <tr>
-                         
+                             
+                             <th></th>
                              <th>Name</th>
                              <th>Address</th>
                              <th>Price</th>
