@@ -8,7 +8,7 @@
       </div>
     
     
-      <!-- To display the property -->
+      <!-- To display the actual property -->
       <div class="col-md-9">
            <!-- Added breadcrumb component -->
            <div class="row">
@@ -33,7 +33,17 @@
                 </div>
            
            </div>
-      
+           
+           <div class="row">
+           
+              <div class="col-xs-12">
+              
+                   <table id="propertyListTable">
+                   </table>
+                   
+              </div>
+              
+           </div>
       
       </div>
     

@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Property {
@@ -16,15 +18,19 @@ public class Property {
 	private String address;
 	private String name;
 	private String type;
+	@JsonIgnore
 	private String description;
 	@Column(name = "booking_price")
 	private double bookingPrice;
 	private int quantity;
 	@Column(name = "is_active")
+	@JsonIgnore
 	private boolean active;
 	@Column(name = "category_id")
+	@JsonIgnore
 	private int categoryId;
 	@Column(name = "client_id")
+	@JsonIgnore
 	private int clientId;
 	private int bookings;
 	private int views;

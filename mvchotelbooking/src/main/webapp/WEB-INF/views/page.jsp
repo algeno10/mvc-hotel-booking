@@ -90,6 +90,9 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="${js}/bootstrap.min.js"></script>
     
+    <!-- DataTable plugin -->
+    <script src="${js}/jquery.dataTables.js"></script>
+    
     <!-- Self coded java script -->
     <script src="${js}/myapp.js"></script>
     
