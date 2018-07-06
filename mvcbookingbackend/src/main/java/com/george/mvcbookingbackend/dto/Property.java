@@ -18,7 +18,6 @@ public class Property {
 	private String address;
 	private String name;
 	private String type;
-	@JsonIgnore
 	private String description;
 	@Column(name = "booking_price")
 	private double bookingPrice;

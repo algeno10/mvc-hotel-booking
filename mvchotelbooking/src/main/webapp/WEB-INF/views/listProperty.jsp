@@ -16,6 +16,11 @@
                 <div class="col-md-12">
                 
                      <c:if test="${userClickAllProperty == true}">
+                     
+                     <script>
+                        window.categoryId ='';
+                     </script>
+                     
                      <ol class="breadcrumb">
                        <li><a href="${contextRoot}/home">Home</a></li>
                        <li class="active">All Property</li>
@@ -23,6 +28,11 @@
                      </c:if>
                      
                      <c:if test="${userClickCategoryProperty == true}">
+                     
+                     <script>
+                        window.categoryId ='${category.id}';
+                     </script>
+                     
                      <ol class="breadcrumb">
                        <li><a href="${contextRoot}/home">Home</a></li>
                        <li class="active">Category</li>
@@ -44,8 +54,10 @@
                        
                          <tr>
                          
-                             <th>ID</th>
                              <th>Name</th>
+                             <th>Address</th>
+                             <th>Booking Price</th>
+                             <th>Room(s) Available</th>
                              
                          </tr>
                          

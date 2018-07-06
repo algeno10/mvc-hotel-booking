@@ -20,18 +20,6 @@ $(function() {
 	}
 	
 	//code for jquery dataTable
-	//create a dataset
-	var properties = [
-		
-		   ["1","ABC"],
-		   ["2","GEO"],
-		   ["3","ORG"],
-		   ["4","SIX"],
-		   ["5","OLI"],
-		   ["6","SIK"],
-		   ["7","HUN"],
-		   ["8","DLA"]
-	];
 	
 	var $table = $('#propertyListTable');
 	
@@ -39,11 +27,40 @@ $(function() {
 	if($table.length){
 		
 		//console.log('Inside the table!');
+		
+		var jsonUrl ='';
+		if(window.categoryId == ''){
+			jsonUrl = window.contextRoot + '/json/data/all/property';
+		}
+		else{
+			jsonUrl = window.contextRoot + '/json/data/category/'+ window.categoryId +'/property';
+		}
+			
+			
+			
 		$table.DataTable( {
 			
 			lengthMenu: [[3,5,10,-1],['3 Records','5 Records', '10 Records','ALL']],
 			pageLength: 5,
-			data: properties
+			ajax: {
+				url: jsonUrl,
+				dataSrc: ''
+			},
+			columns: [
+				
+				{
+					data: 'name'
+				},
+				{
+					data: 'address'
+				},
+				{
+					data: 'bookingPrice'
+				},
+				{
+					data: 'quantity'
+				}
+			]
 			
 		});
 	}
