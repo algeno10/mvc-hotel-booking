@@ -42,10 +42,42 @@
 			<h4>Price: <strong>R ${property.bookingPrice} /-</strong></h4>
 			<hr/>
 			
-			<h6>Room(s) Available: ${property.quantity}</h6>
 			
-			<a href="${contextRoot}/booking/add/${property.id}/property" class="btn btn-success">
-			<span class="glyphicon glyphicon-plus"></span>Make Booking</a>
+			
+			<c:choose>
+			
+				<c:when test="${property.quantity < 1}">
+				
+					<h6>Room(s) Available: <span style="color:red">There are no available rooms!</span></h6>
+					
+				</c:when>
+				<c:otherwise>
+				
+					<h6>Room(s) Available: ${property.quantity}</h6>
+					
+				</c:otherwise>
+				
+			</c:choose>
+			
+			
+			<c:choose>
+			
+				<c:when test="${property.quantity < 1}">
+				
+					<a href="javascript:void(0)" class="btn btn-success disabled"><strike>
+					<span class="glyphicon glyphicon-plus"></span>Make Booking</strike></a>
+					
+				</c:when>
+				<c:otherwise>
+				
+					<a href="${contextRoot}/booking/add/${property.id}/property" class="btn btn-success">
+					<span class="glyphicon glyphicon-plus"></span>Make Booking</a>
+					
+				</c:otherwise>
+				
+			</c:choose>
+			
+			
 	        <a href="${contextRoot}/show/all/property" class="btn btn-primary">
 			Back</a>
 		
