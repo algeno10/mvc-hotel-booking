@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.george.booking.exception.PropertyNotFoundException;
 import com.george.mvcbookingbackend.dao.CategoryDAO;
 import com.george.mvcbookingbackend.dao.PropertyDAO;
 import com.george.mvcbookingbackend.dto.Category;
@@ -99,11 +100,13 @@ public class PageController {
 	 * Viewing a single property
 	 * */
 	@RequestMapping(value ="/show/{id}/property")
-	public ModelAndView showSingleProperty(@PathVariable int id) {
+	public ModelAndView showSingleProperty(@PathVariable int id) throws PropertyNotFoundException{
 		
 		ModelAndView mv = new ModelAndView("page");
 		
 		Property property = propertyDAO.get(id);
+		
+		if(property == null) throw new PropertyNotFoundException();
 		
 		//update the view count
 		property.setViews(property.getViews() + 1);
