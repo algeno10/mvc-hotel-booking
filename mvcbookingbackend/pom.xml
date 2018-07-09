@@ -25,6 +25,19 @@
     </dependency>
     
     <!-- Spring -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+    <dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-core</artifactId>
+    		<version>5.0.7.RELEASE</version>
+    		<exclusions>
+    			<exclusion>
+    				<groupId>commons-logging</groupId>
+    				<artifactId>commons-logging</artifactId>
+    			</exclusion>
+    		</exclusions>
+	</dependency>
+    
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 	<dependency>
     		<groupId>org.springframework</groupId>
@@ -62,6 +75,12 @@
     		<groupId>org.apache.commons</groupId>
     		<artifactId>commons-dbcp2</artifactId>
     		<version>2.4.0</version>
+    		<exclusions>
+    			<exclusion>
+    				<groupId>commons-logging</groupId>
+    				<artifactId>commons-logging</artifactId>
+    			</exclusion>
+    		</exclusions>
 	</dependency>
 	
 	<!-- Jackson -->
