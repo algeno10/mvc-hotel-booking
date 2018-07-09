@@ -77,11 +77,14 @@
      		<%@include file="contact.jsp" %>
     	</c:if>
    
-    
-    
     	<!-- Load only when  user clicks contact-->
     	<c:if test="${userClickAllProperty == true or userClickCategoryProperty == true}">
      		<%@include file="listProperty.jsp" %>
+    	</c:if>
+    	
+    	<!-- Load only when  user clicks show property-->
+    	<c:if test="${userClickShowProperty == true}">
+     		<%@include file="singleProperty.jsp" %>
     	</c:if>
     </div>
 

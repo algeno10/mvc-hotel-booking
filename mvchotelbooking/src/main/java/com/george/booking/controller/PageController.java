@@ -98,7 +98,16 @@ public class PageController {
 		
 		Property property = propertyDAO.get(id);
 		
+		//update the view count
+		property.setViews(property.getViews() + 1);
+		propertyDAO.update(property);
+		//-----------------------------
 		
+		
+		mv.addObject("title", property.getName());
+		mv.addObject("property", property);
+		
+		mv.addObject("userClickShowProperty", true);
 		
 		return mv;
 	}
