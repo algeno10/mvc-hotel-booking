@@ -17,11 +17,17 @@
                     <li id="about">
                         <a href="${contextRoot}/about">About</a>
                     </li>
+                    
                     <li id="contact">
                         <a href="${contextRoot}/contact">Contact</a>
                     </li>
-                    <li id="listproperty">
+                    
+                    <li id="listProperty">
                         <a href="${contextRoot}/show/all/property">View Properties</a>
+                    </li>
+                    
+                    <li id="manageProperty">
+                        <a href="${contextRoot}/manage/property">Manage Properties</a>
                     </li>
                 </ul>
             </div>

@@ -86,6 +86,11 @@
     	<c:if test="${userClickShowProperty == true}">
      		<%@include file="singleProperty.jsp" %>
     	</c:if>
+    	
+    	<!-- Load only when  user clicks manage property-->
+    	<c:if test="${userClickManageProperties == true}">
+     		<%@include file="manageProperty.jsp" %>
+    	</c:if>
     </div>
 
     <!-- Footer comes here -->

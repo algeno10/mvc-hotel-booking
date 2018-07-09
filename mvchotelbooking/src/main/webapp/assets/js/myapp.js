@@ -9,7 +9,10 @@ $(function() {
 		$('#contact').addClass('active');
 		break;
 	case 'All Property':
-		$('#listproperty').addClass('active');
+		$('#listProperty').addClass('active');
+		break;
+	case 'Manage Properties':
+		$('#manageProperty').addClass('active');
 		break;
 	default:
 		if(menu == "Home") break;
