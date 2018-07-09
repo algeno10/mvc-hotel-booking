@@ -6,13 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.george.mvcbookingbackend.dao.CategoryDAO;
+import com.george.mvcbookingbackend.dao.PropertyDAO;
 import com.george.mvcbookingbackend.dto.Category;
+import com.george.mvcbookingbackend.dto.Property;
 
 @Controller
 public class PageController {
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private PropertyDAO propertyDAO;
 	
 	//Method for the home page
 	@RequestMapping(value = {"/", "/home", "/index"})
@@ -79,6 +84,22 @@ public class PageController {
 		mv.addObject("category", category);
 		
 		mv.addObject("userClickCategoryProperty", true);
+		return mv;
+	}
+	
+	
+	/*
+	 * Viewing a single property
+	 * */
+	@RequestMapping(value ="/show/{id}/property")
+	public ModelAndView showSingleProperty(@PathVariable int id) {
+		
+		ModelAndView mv = new ModelAndView("page");
+		
+		Property property = propertyDAO.get(id);
+		
+		
+		
 		return mv;
 	}
 	
