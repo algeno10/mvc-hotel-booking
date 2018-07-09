@@ -1,5 +1,8 @@
 package com.george.booking.exception;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,7 +41,7 @@ public class GlobalDefaultExceptionHandler {
 		return mv;
 	}
 	
-	//General exception handler
+	//Generalize exception handler
 	@ExceptionHandler(Exception.class)
 	public ModelAndView handlerException(Exception ex) {
 		
@@ -46,9 +49,15 @@ public class GlobalDefaultExceptionHandler {
 		
 		mv.addObject("errorTitle", "Contact Your Administrator!");
 		
-		mv.addObject("errorDescription", "");
+		/*only for debugging the application*/
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
 		
-		mv.addObject("title", ex.toString());
+		ex.printStackTrace(pw);
+		
+		mv.addObject("errorDescription",  sw.toString());
+		
+		mv.addObject("title", "Error");
 		
 		return mv;
 	}
