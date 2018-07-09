@@ -8,6 +8,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @ControllerAdvice
 public class GlobalDefaultExceptionHandler {
 	
+	//Page exception handler
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public ModelAndView handlerNoHandlerFoundException() {
 		
@@ -22,6 +23,7 @@ public class GlobalDefaultExceptionHandler {
 		return mv;
 	}
 	
+	//Property exception handler
 	@ExceptionHandler(PropertyNotFoundException.class)
 	public ModelAndView handlerPropertyNotFoundException() {
 		
@@ -32,6 +34,21 @@ public class GlobalDefaultExceptionHandler {
 		mv.addObject("errorDescription", "The property you are looking for is not available right now!");
 		
 		mv.addObject("title", "Property Unavailable");
+		
+		return mv;
+	}
+	
+	//General exception handler
+	@ExceptionHandler(Exception.class)
+	public ModelAndView handlerException(Exception ex) {
+		
+		ModelAndView mv = new ModelAndView("error");
+		
+		mv.addObject("errorTitle", "Contact Your Administrator!");
+		
+		mv.addObject("errorDescription", "");
+		
+		mv.addObject("title", ex.toString());
 		
 		return mv;
 	}
