@@ -62,6 +62,7 @@ public class ManagementController {
 		
 		//create a new property record
 		propertyDAO.add(mProperty);
+		
 		return "redirect:/manage/property?operation=property";
 	}
 	
