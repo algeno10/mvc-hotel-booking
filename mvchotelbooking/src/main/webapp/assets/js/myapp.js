@@ -111,6 +111,39 @@ $(function() {
 			$alert.fadeOut('slow');
 		}, 3000)
 	}
+	
+	//---------------------------------
+	
+	$('.switch input[type="checkbox"]').on('change', function(){
+		
+		var checkbox = $(this);
+		var checked = checkbox.prop('checked');
+		var dMsg = (checked)? 'You want to activate the property?':
+			'You want to deactivate the property?';
+		var value = checkbox.prop('value');
+		
+		bootbox.confirm({
+			size: 'medium',
+			title: 'Property Activation & Deactivation',
+			message: dMsg,
+			callback: function(confirmed){
+				
+				if(confirmed){
+					
+					console.log(value);
+					bootbox.alert({
+						size: 'medium',
+						title: 'Information',
+						message: 'You are going to perform operation on property' + value
+						
+					});
+					
+				} else{
+					checkbox.prop('checked', !checked);
+				}
+			}
+		});
+	});
 
 	
 });
