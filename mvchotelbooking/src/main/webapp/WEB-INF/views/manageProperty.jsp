@@ -1,9 +1,20 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <div class="container">
-
-
 	<div class="row">
-	
+		
+		
+		<c:if test="${not empty message}">
+			<div class="col-xs-12">
+				<div class="alert alert-success alert-dismissible">
+				
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					
+					${message}
+					
+				</div>
+			</div>
+		</c:if>
+		
 		<div class="col-md-offset-2 col-md-8">
 		
 			<div class="panel panel-primary">
@@ -17,7 +28,10 @@
 				<div class="panel-body">
 				
 					<!-- FORM ELEMENTS -->
-					<sf:form class="form-horizontal" modelAttribute="property">
+					<sf:form class="form-horizontal" modelAttribute="property"
+						action="${contextRoot}/manage/property"
+						method="POST"
+					>
 					
 					    <!-- Property Name -->
 						<div class="form-group">

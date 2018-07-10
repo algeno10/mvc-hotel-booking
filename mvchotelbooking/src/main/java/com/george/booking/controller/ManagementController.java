@@ -2,14 +2,18 @@ package com.george.booking.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.george.mvcbookingbackend.dao.CategoryDAO;
+import com.george.mvcbookingbackend.dao.PropertyDAO;
 import com.george.mvcbookingbackend.dto.Category;
 import com.george.mvcbookingbackend.dto.Property;
 
@@ -20,8 +24,12 @@ public class ManagementController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
+	@Autowired
+	private PropertyDAO propertyDAO;
+	
+	private static final Logger logger = LoggerFactory.getLogger(ManagementController.class);
 	@RequestMapping(value="/property", method=RequestMethod.GET)
-	public ModelAndView showManageProperty() {
+	public ModelAndView showManageProperty(@RequestParam(name="operation", required=false) String operation) {
 		
 		ModelAndView mv = new ModelAndView("page");
 		
@@ -35,8 +43,25 @@ public class ManagementController {
 		
 		mv.addObject("property", nProperty);
 		
+		if(operation!=null) {
+			
+			if(operation.equals("property")) {
+				mv.addObject("message", "Property Submitted Successfully!");
+			}
+		}
+		
 		return mv;
 	}
+	
+	//handling property submission
+	@RequestMapping(value="/property", method=RequestMethod.POST)
+	public String handlePropertySubmission(@ModelAttribute("property") Property mProperty) {
+		
+		//create a new property record
+		propertyDAO.add(mProperty);
+		return "redirect:/manage/property?operation=property";
+	}
+	
 	
 	//Returning a list of categories from the CategoryDAO class
 	@ModelAttribute("categories")
