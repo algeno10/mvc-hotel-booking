@@ -41,7 +41,7 @@
 						<div class="form-group">						
 							<label class="control-label col-md-4" for="description">Property Description: </label>
 							<div class="col-md-8">
-								<sf:textarea path="description" id="description" rows="4" placeholder="Write a description"/>
+								<sf:textarea path="description" id="description" class="form-control" placeholder="Write a description"/>
 							</div>
 						</div>
 						
@@ -65,11 +65,11 @@
 						<div class="form-group">
 							<label class="control-label col-md-4" for="categoryId">Select Category: </label>
 							<div class="col-md-8">
-								<select name="categoryId" id="categoryId" class="form-control">
-									<option value="1">Category One</option>
-									<option value="2">Category Two</option>
-									<option value="3">Category Three</option>
-								</select>
+								<sf:select path="categoryId" id="categoryId" class="form-control"
+									items="${categories}"
+									itemLabel="name"
+									itemValue="id"
+								/>
 							</div>
 						</div>
 						
