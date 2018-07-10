@@ -2,10 +2,14 @@ package com.george.booking.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -56,7 +60,16 @@ public class ManagementController {
 	
 	//handling property submission
 	@RequestMapping(value="/property", method=RequestMethod.POST)
-	public String handlePropertySubmission(@ModelAttribute("property") Property mProperty) {
+	public String handlePropertySubmission(@Valid @ModelAttribute("property") Property mProperty, BindingResult results, Model model) {
+		
+		//check if there are any errors
+		if(results.hasErrors()) {
+			
+			model.addAttribute("userClickManageProperties", true);
+			model.addAttribute("title", "Manage Properties");
+			
+			return "page";
+		}
 		
 		logger.info(mProperty.toString());
 		
