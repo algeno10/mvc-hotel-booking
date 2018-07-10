@@ -17,13 +17,13 @@
 				<div class="panel-body">
 				
 					<!-- FORM ELEMENTS -->
-					<form class="form-horizontal">
+					<sf:form class="form-horizontal" modelAttribute="property">
 					
 					    <!-- Property Name -->
 						<div class="form-group">
 							<label class="control-label col-md-4" for="name">Enter Property Name: </label>
 							<div class="col-md-8">
-								<input type="text" name="name" id="name" placeholder="Property Name" class="form-control"/>
+								<sf:input type="text" path="name" id="name" placeholder="Property Name" class="form-control"/>
 								<em class="help-block">Please enter Property Name!</em>
 							</div>
 						</div>
@@ -32,7 +32,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-4" for="address">Enter Property Address: </label>
 							<div class="col-md-8">
-								<input type="text" name="address" id="address" placeholder="Property Address" class="form-control"/>
+								<sf:input type="text" path="address" id="address" placeholder="Property Address" class="form-control"/>
 								<em class="help-block">Please enter Property Address!</em>
 							</div>
 						</div>
@@ -41,8 +41,7 @@
 						<div class="form-group">						
 							<label class="control-label col-md-4" for="description">Property Description: </label>
 							<div class="col-md-8">
-								<textarea name="description" id="description" rows="4" placeholder="Write a description">
-								</textarea>
+								<sf:textarea path="description" id="description" rows="4" placeholder="Write a description"/>
 							</div>
 						</div>
 						
@@ -50,7 +49,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-4" for="bookingPrice">Enter Booking Price: </label>
 							<div class="col-md-8">
-								<input type="number" name="bookingPrice" id="bookingPrice" placeholder="Booking Price in R" class="form-control"/>
+								<sf:input type="number" path="bookingPrice" id="bookingPrice" placeholder="Booking Price in R" class="form-control"/>
 							</div>
 						</div>
 						
@@ -58,7 +57,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-4" for="quantity">Quantity Available: </label>
 							<div class="col-md-8">
-								<input type="number" name="quantity" id="quantity" placeholder="Quantity Available" class="form-control"/>
+								<sf:input type="number" path="quantity" id="quantity" placeholder="Quantity Available" class="form-control"/>
 							</div>
 						</div>
 						
@@ -81,12 +80,21 @@
 							
 								<input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary"/>
 								
+								<!-- Hidden fields for property -->
+								<sf:hidden path="id"/>
+								<sf:hidden path="code"/>
+								<sf:hidden path="active"/>
+								<sf:hidden path="categoryId"/>
+								<sf:hidden path="clientId"/>
+								<sf:hidden path="bookings"/>
+								<sf:hidden path="views"/>
+								
 							</div>
 						
 						</div>
 				
 				
-					</form>
+					</sf:form>
 				
 				</div>
 			
