@@ -24,6 +24,12 @@ public class JsonDataController {
 		return propertyDAO.listActiveProperties();
 	}
 	
+	@RequestMapping("/admin/all/property")
+	@ResponseBody
+	public List<Property> getAllPropertiesForAdmin(){
+		return propertyDAO.list();
+	}
+	
 	@RequestMapping("/category/{id}/property")
 	@ResponseBody
 	public List<Property> getPropertiesByCategory(@PathVariable int id){
