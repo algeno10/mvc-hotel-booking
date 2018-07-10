@@ -6,8 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -44,7 +47,18 @@ public class Property {
 	private int views;
 	
 	
-	//Constructor to generate the code
+	@Transient
+	private MultipartFile file;
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+	//Default constructor to generate the code
 	public Property(){
 	     this.code = "PRO" + UUID.randomUUID().toString().substring(26).toUpperCase();
 	}

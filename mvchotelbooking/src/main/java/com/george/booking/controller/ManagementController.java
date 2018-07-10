@@ -67,6 +67,7 @@ public class ManagementController {
 			
 			model.addAttribute("userClickManageProperties", true);
 			model.addAttribute("title", "Manage Properties");
+			model.addAttribute("message", "Validation failed for Property Submission!");
 			
 			return "page";
 		}
