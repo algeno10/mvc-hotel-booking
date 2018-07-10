@@ -2,6 +2,7 @@ package com.george.booking.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.george.booking.util.FileUploadUtility;
 import com.george.mvcbookingbackend.dao.CategoryDAO;
 import com.george.mvcbookingbackend.dao.PropertyDAO;
 import com.george.mvcbookingbackend.dto.Category;
@@ -60,7 +62,8 @@ public class ManagementController {
 	
 	//handling property submission
 	@RequestMapping(value="/property", method=RequestMethod.POST)
-	public String handlePropertySubmission(@Valid @ModelAttribute("property") Property mProperty, BindingResult results, Model model) {
+	public String handlePropertySubmission(@Valid @ModelAttribute("property") Property mProperty, BindingResult results, Model model,
+			HttpServletRequest request) {
 		
 		//check if there are any errors
 		if(results.hasErrors()) {
@@ -76,6 +79,10 @@ public class ManagementController {
 		
 		//create a new property record
 		propertyDAO.add(mProperty);
+		
+		if(!mProperty.getFile().getOriginalFilename().equals("")) {
+			FileUploadUtility.uploadFile(request, mProperty.getFile(), mProperty.getCode());
+		}
 		
 		return "redirect:/manage/property?operation=property";
 	}
