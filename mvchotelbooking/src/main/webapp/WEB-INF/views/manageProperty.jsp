@@ -127,4 +127,63 @@
 			</div>
 		</div>	
 	</div>
+	
+	<div class="row">
+		
+		<div class="col-xs-12">
+			<h3>Available Property</h3>
+			<hr/>
+		</div>
+		
+		<div class="col-xs-12">
+			<div style="overflow:auto">
+			
+				<!-- Property table for Admin -->
+				<table id="adminPropertyTable" class="table table-striped
+				table-bordered">
+
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>&#160;</th>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Quantity</th>
+						<th>Booking Price</th>
+						<th>Active</th>
+						<th>Edit</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+				
+				<tfoot>
+					<tr>
+						<th>Id</th>
+						<th>&#160;</th>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Quantity</th>
+						<th>Booking Price</th>
+						<th>Active</th>
+						<th>Edit</th>
+					</tr>
+				</tfoot>
+			</table>
+				
+			</div>
+		</div>
+		
+	</div>
 </div>
