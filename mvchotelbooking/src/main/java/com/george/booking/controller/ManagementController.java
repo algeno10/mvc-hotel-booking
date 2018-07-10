@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.george.booking.util.FileUploadUtility;
+import com.george.booking.validator.PropertyValidator;
 import com.george.mvcbookingbackend.dao.CategoryDAO;
 import com.george.mvcbookingbackend.dao.PropertyDAO;
 import com.george.mvcbookingbackend.dto.Category;
@@ -64,6 +65,9 @@ public class ManagementController {
 	@RequestMapping(value="/property", method=RequestMethod.POST)
 	public String handlePropertySubmission(@Valid @ModelAttribute("property") Property mProperty, BindingResult results, Model model,
 			HttpServletRequest request) {
+		
+		new PropertyValidator().validate(mProperty, results);
+		
 		
 		//check if there are any errors
 		if(results.hasErrors()) {
