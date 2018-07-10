@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -17,12 +19,16 @@ public class Property {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@NotBlank(message="Please enter the Property Address!")
 	private String address;
+	@NotBlank(message="Please enter the Property Name!")
 	private String name;
 	private String code;
 	@JsonIgnore
+	@NotBlank(message="Please enter the description for Property!")
 	private String description;
 	@Column(name = "booking_price")
+	@Min(value=1, message="The price cannot be less than 1!")
 	private double bookingPrice;
 	private int quantity;
 	@Column(name = "is_active")

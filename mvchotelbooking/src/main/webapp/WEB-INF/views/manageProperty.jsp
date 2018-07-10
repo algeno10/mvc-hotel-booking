@@ -38,7 +38,7 @@
 							<label class="control-label col-md-4" for="name">Enter Property Name: </label>
 							<div class="col-md-8">
 								<sf:input type="text" path="name" id="name" placeholder="Property Name" class="form-control"/>
-								<em class="help-block">Please enter Property Name!</em>
+								<sf:errors path="name" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 						
@@ -47,7 +47,7 @@
 							<label class="control-label col-md-4" for="address">Enter Property Address: </label>
 							<div class="col-md-8">
 								<sf:input type="text" path="address" id="address" placeholder="Property Address" class="form-control"/>
-								<em class="help-block">Please enter Property Address!</em>
+								<sf:errors path="address" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 						
@@ -56,6 +56,7 @@
 							<label class="control-label col-md-4" for="description">Property Description: </label>
 							<div class="col-md-8">
 								<sf:textarea path="description" id="description" class="form-control" placeholder="Write a description"/>
+								<sf:errors path="description" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 						
@@ -64,6 +65,7 @@
 							<label class="control-label col-md-4" for="bookingPrice">Enter Booking Price: </label>
 							<div class="col-md-8">
 								<sf:input type="number" path="bookingPrice" id="bookingPrice" placeholder="Booking Price in R" class="form-control"/>
+								<sf:errors path="bookingPrice" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 						
