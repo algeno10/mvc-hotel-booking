@@ -117,6 +117,17 @@ public class Property {
 	public void setViews(int views) {
 		this.views = views;
 	}
+    
+	//toString for debugging
+	@Override
+	public String toString() {
+		return "Property [id=" + id + ", address=" + address + ", name=" + name + ", code=" + code + ", description="
+				+ description + ", bookingPrice=" + bookingPrice + ", quantity=" + quantity + ", active=" + active
+				+ ", categoryId=" + categoryId + ", clientId=" + clientId + ", bookings=" + bookings + ", views="
+				+ views + "]";
+	}
+	
+	
 	
 	
 	

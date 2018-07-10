@@ -28,6 +28,7 @@ public class ManagementController {
 	private PropertyDAO propertyDAO;
 	
 	private static final Logger logger = LoggerFactory.getLogger(ManagementController.class);
+	
 	@RequestMapping(value="/property", method=RequestMethod.GET)
 	public ModelAndView showManageProperty(@RequestParam(name="operation", required=false) String operation) {
 		
@@ -56,6 +57,8 @@ public class ManagementController {
 	//handling property submission
 	@RequestMapping(value="/property", method=RequestMethod.POST)
 	public String handlePropertySubmission(@ModelAttribute("property") Property mProperty) {
+		
+		logger.info(mProperty.toString());
 		
 		//create a new property record
 		propertyDAO.add(mProperty);
