@@ -196,7 +196,7 @@ var $propertyTable = $('#propertyTable');
 						
 						var str = '';
 						
-						str += '<a href="${contextRoot}/manage/'+data+'/property" class="btn btn warning">';
+						str += '<a href="'+window.contextRoot+'/manage/'+data+'/property" class="btn btn warning">';
 						str += '<span class="glyphicon glyphicon-pencil"></span></a>';
 							
 							return str;
@@ -226,12 +226,19 @@ var $propertyTable = $('#propertyTable');
 							if(confirmed){
 								
 								console.log(value);
-								bootbox.alert({
-									size: 'medium',
-									title: 'Information',
-									message: 'You are going to perform operation on property' + value
+								
+								var activationUrl = window.contextRoot + '/manage/property/' + value + '/activation';
+								
+								$.post(activationUrl, function(){
 									
+									bootbox.alert({
+										size: 'medium',
+										title: 'Information',
+										message: data
+										
+									});
 								});
+							
 								
 							} else{
 								checkbox.prop('checked', !checked);
