@@ -96,6 +96,10 @@
 									itemLabel="name"
 									itemValue="id"
 								/>
+								<c:if test="${property.id == 0}">
+									<br/>
+									<button type="button" data-toggle="modal" data-target="myCategoryModal" class="btn btn-warning btn-sm">Add Category</button>
+								</c:if>
 							</div>
 						</div>
 						
