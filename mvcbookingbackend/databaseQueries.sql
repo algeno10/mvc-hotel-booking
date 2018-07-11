@@ -75,4 +75,22 @@ INSERT INTO property (address, name, code, description, booking_price, quantity,
 VALUES ('13, 4th street, Linden, Randburg, 2195 Johannesburg, South Africa', 'Linden Guest House', 'PROPQR123WGTX', 'Randburg is a great choice for travelers interested in city trips, restaurants and nightlife.',
 548.35, 10, true, 2, 4);
 
+CREATE TABLE address(
+
+	id IDENTITY,
+	user_id INT,
+	address_line_one VARCHAR(250),
+	address_line_two VARCHAR(250),
+	city VARCHAR(50),
+	state VARCHAR(50),
+	country VARCHAR(50),
+	postal_code VARCHAR(50),
+	booked BOOLEAN,
+	billing BOOLEAN,
+	
+	CONSTRAINT pk_address_id PRIMARY KEY (id),
+	CONSTRAINT fk_user_address_id FOREIGN KEY (user_id) REFERENCES user_detail (id),
+
+);
+
 
