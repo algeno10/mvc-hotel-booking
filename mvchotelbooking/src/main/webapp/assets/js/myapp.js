@@ -144,6 +144,102 @@ $(function() {
 			}
 		});
 	});
+	
+	// -------------------------------
+	// data table for admin
+	// -------------------------------
+	
+var $adminPropertyTable = $('#adminPropertyTable');
+	
+	//execute the below code only where we have this table
+	if($adminPropertyTable.length){
+		
+		//console.log('Inside the table!');
+		
+		var jsonUrl = window.contextRoot + '/json/data/admin/all/property';
+
+		$adminPropertyTable.DataTable( {
+			
+			lengthMenu: [[10,30,50,-1],['10 Records','30 Records', '50 Records','ALL']],
+			pageLength: 30,
+			ajax: {
+				url: jsonUrl,
+				dataSrc: ''
+			},
+			columns: [
+				{
+					data: 'id'
+				},
+				{
+					data: 'address'
+				},
+				{
+					data: 'name'
+				},
+				{
+					data: 'code',
+					mRender: function(data, type , row){
+						return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="adminDataTableImg"/>';
+					}
+				},
+				{
+					data: 'bookingPrice',
+					mRender: function(data, type, row){
+						return 'R' + data
+					}
+				},
+				{
+					data: 'quantity',
+					mRender: function(data, type, row){
+						
+						if(data < 1){
+							return '<span style="color:red">Room(s) fully booked</span>'
+						}
+						return data;
+						
+					}
+				},
+				{
+					data: 'active',
+					bSortable: false,
+					mRender: function(data, type, row){
+						
+						var str = '';
+						
+						str += '<label class="switch">';
+						if(data){
+							str +=	'<input type="checkbox" checked="checked" value="'+row.id+'"/>';
+						} else{
+							str +=	'<input type="checkbox" value="'+row.id+'"/>';
+						}	
+						str +=	'<div class="slider"></div></label>';
+							
+							return str;
+						 
+					}
+				},
+				{
+					data: 'id',
+					bSortable: false,
+					mRender: function(data, type, row){
+						
+						var str = '';
+						
+						str += '<a href="${contextRoot}/manage/'+data+'/property" class="btn btn warning">';
+						str += '<span class="glyphicon glyphicon-pencil"></span></a>';
+							
+							return str;
+						
+					}
+				}
+
+			]
+			
+		});
+	}
+	
+	
+	// -------------------------------
 
 	
 });
