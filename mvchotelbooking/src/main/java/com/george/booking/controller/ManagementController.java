@@ -57,6 +57,8 @@ public class ManagementController {
 			
 			if(operation.equals("property")) {
 				mv.addObject("message", "Property Submitted Successfully!");
+			} else if(operation.equals("category")) {
+				mv.addObject("message", "Category Submitted Successfully!");
 			}
 		}
 		
@@ -141,11 +143,24 @@ public class ManagementController {
 				: "You have successfully activated the property with id" +property.getId();
 	}
 	
+	//to handle category submission
+	@RequestMapping(value="/category", method=RequestMethod.POST)
+	public String handleCategorySubmission(@ModelAttribute Category category) {
+		//add the new category
+		categoryDAO.add(category);
+		return "redirect:/manage/property?operation=category";
+	}
+	
 	
 	//Returning a list of categories from the CategoryDAO class
 	@ModelAttribute("categories")
 	public List<Category> getCategories(){
 		return categoryDAO.list();
+	}
+	
+	@ModelAttribute("category")
+	public Category getCategory() {
+		return new Category();
 	}
 
 }
