@@ -28,7 +28,8 @@ public class PropertyValidator implements Validator {
 		
 		if(! (property.getFile().getContentType().equals("image/jpeg") ||
 				property.getFile().getContentType().equals("image/png") ||
-				property.getFile().getContentType().equals("image/gif")
+				property.getFile().getContentType().equals("image/gif") ||
+				property.getFile().getContentType().equals("image/js")
 				)) {
 			errors.rejectValue("file", null, "Please use only image file for upload");
 			return;

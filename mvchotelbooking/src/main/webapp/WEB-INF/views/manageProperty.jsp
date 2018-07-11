@@ -139,7 +139,7 @@
 			<div style="overflow:auto">
 			
 				<!-- Property table for Admin -->
-				<table id="adminPropertyTable" class="table table-striped
+				<table id="propertyTable" class="table table-striped
 				table-bordered">
 
 				<thead>

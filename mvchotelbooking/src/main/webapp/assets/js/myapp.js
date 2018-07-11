@@ -113,52 +113,23 @@ $(function() {
 	}
 	
 	//---------------------------------
-	
-	$('.switch input[type="checkbox"]').on('change', function(){
-		
-		var checkbox = $(this);
-		var checked = checkbox.prop('checked');
-		var dMsg = (checked)? 'You want to activate the property?':
-			'You want to deactivate the property?';
-		var value = checkbox.prop('value');
-		
-		bootbox.confirm({
-			size: 'medium',
-			title: 'Property Activation & Deactivation',
-			message: dMsg,
-			callback: function(confirmed){
-				
-				if(confirmed){
-					
-					console.log(value);
-					bootbox.alert({
-						size: 'medium',
-						title: 'Information',
-						message: 'You are going to perform operation on property' + value
-						
-					});
-					
-				} else{
-					checkbox.prop('checked', !checked);
-				}
-			}
-		});
-	});
+
 	
 	// -------------------------------
 	// data table for admin
 	// -------------------------------
 	
-var $adminPropertyTable = $('#adminPropertyTable');
+var $propertyTable = $('#propertyTable');
 	
 	//execute the below code only where we have this table
-	if($adminPropertyTable.length){
+	if($propertyTable.length){
 		
 		//console.log('Inside the table!');
 		
 		var jsonUrl = window.contextRoot + '/json/data/admin/all/property';
-
-		$adminPropertyTable.DataTable( {
+		console.log(jsonUrl);
+		
+		$propertyTable.DataTable( {
 			
 			lengthMenu: [[10,30,50,-1],['10 Records','30 Records', '50 Records','ALL']],
 			pageLength: 30,
@@ -233,8 +204,46 @@ var $adminPropertyTable = $('#adminPropertyTable');
 					}
 				}
 
-			]
-			
+			],
+		
+			initComplete: function(){
+				 
+				var api = this.api();
+				api.$('.switch input[type="checkbox"]').on('change', function(){
+					
+					var checkbox = $(this);
+					var checked = checkbox.prop('checked');
+					var dMsg = (checked)? 'You want to activate the property?':
+						'You want to deactivate the property?';
+					var value = checkbox.prop('value');
+					
+					bootbox.confirm({
+						size: 'medium',
+						title: 'Property Activation & Deactivation',
+						message: dMsg,
+						callback: function(confirmed){
+							
+							if(confirmed){
+								
+								console.log(value);
+								bootbox.alert({
+									size: 'medium',
+									title: 'Information',
+									message: 'You are going to perform operation on property' + value
+									
+								});
+								
+							} else{
+								checkbox.prop('checked', !checked);
+							}
+						}
+					});
+				});
+				
+				
+				
+				
+			}
 		});
 	}
 	
