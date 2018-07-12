@@ -1,5 +1,7 @@
 package com.george.mvcbookingbackend.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -61,6 +63,38 @@ public class UserDAOImpl implements UserDAO {
 					.createQuery(selectQuery, User.class)
 					.setParameter("email", email)
 					.getSingleResult();
+		} catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
+
+
+	@Override
+	public Address getBookingAddress(User user) {
+		String selectQuery = "FROM Address WHERE user = :user AND billing = :billing"; 
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(selectQuery, Address.class)
+					.setParameter("user", user)
+					.setParameter("billing", true)
+					.getSingleResult();
+		} catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
+
+
+	@Override
+	public List<Address> listBookingAddress(User user) {
+		String selectQuery = "FROM Address WHERE user = :user AND booked = :booked"; 
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(selectQuery, Address.class)
+					.setParameter("user", user)
+					.setParameter("booked", true)
+					.getResultList();
 		} catch(Exception ex) {
 			ex.printStackTrace();
 			return null;

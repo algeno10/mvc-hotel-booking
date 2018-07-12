@@ -111,7 +111,7 @@ public class UserTestCase {
 	    assertEquals("Failed to add user!", true, userDAO.addUser(user));
 	} */
 
-	@Test
+/*	@Test
 	public void testUpdateBooking() {
 		
 		//fetch the user by its email
@@ -125,5 +125,5 @@ public class UserTestCase {
 		booking.setBookingLines(2);
 		
 		assertEquals("Failed to update booking!", true, userDAO.updateBooking(booking));
-	}
+	} */
 }
