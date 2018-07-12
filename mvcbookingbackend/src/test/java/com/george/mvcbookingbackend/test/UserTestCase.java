@@ -28,7 +28,7 @@ public class UserTestCase {
 		userDAO = (UserDAO) context.getBean("userDAO");
 	}
 	
-	@Test
+/*	@Test
 	public void testAdd() {
 		
 		user = new User();
@@ -81,10 +81,49 @@ public class UserTestCase {
 			
 			//add the booking
 			assertEquals("Failed to add booking!", true, userDAO.addAddress(address));
+		}	
+	} */
+	
+	
+/*	@Test
+	public void testAdd() {
+		
+		user = new User();
+		user.setFirstName("Henry");
+		user.setLastName("Frick");
+		user.setEmail("henryf@gmail.com");
+		user.setContactNumber("0924781268");
+		user.setRole("USER");
+		user.setPassword("98765");
+		
+		if(user.getRole().equals("USER")) {
 			
-		}
-		
-		
-	}
+			//create a booking for the user
+			booking = new Booking();
+			
+			booking.setUser(user);
+			
+			//attach booking with the user
+			user.setBooking(booking);
 
+		}	
+		//add the user
+	    assertEquals("Failed to add user!", true, userDAO.addUser(user));
+	} */
+
+	@Test
+	public void testUpdateBooking() {
+		
+		//fetch the user by its email
+		user = userDAO.getByEmail("henryf@gmail.com");
+		
+		//get the booking of the user
+		booking = user.getBooking();
+		
+		booking.setGrandTotal(2222);
+		
+		booking.setBookingLines(2);
+		
+		assertEquals("Failed to update booking!", true, userDAO.updateBooking(booking));
+	}
 }

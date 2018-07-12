@@ -1,10 +1,12 @@
 package com.george.mvcbookingbackend.dto;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +29,15 @@ public class User {
 	private String role;
 	private String password;
 	private boolean enabled = true;
+	
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	private Booking booking;
+	public Booking getBooking() {
+		return booking;
+	}
+	public void setBooking(Booking booking) {
+		this.booking = booking;
+	}
 	
 	/*
 	 * setters and getters for the fields
