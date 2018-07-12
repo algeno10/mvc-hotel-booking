@@ -1,6 +1,8 @@
 package com.george.mvcbookingbackend.test;
 
+import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.george.mvcbookingbackend.dao.UserDAO;
@@ -24,6 +26,65 @@ public class UserTestCase {
 		context.refresh();
 		
 		userDAO = (UserDAO) context.getBean("userDAO");
+	}
+	
+	@Test
+	public void testAdd() {
+		
+		user = new User();
+		user.setFirstName("Henry");
+		user.setLastName("Frick");
+		user.setEmail("henryf@gmail.com");
+		user.setContactNumber("0924781268");
+		user.setRole("USER");
+		user.setPassword("98765");
+		
+		//add the user
+		assertEquals("Failed to add user!", true, userDAO.addUser(user));
+		
+		address = new Address();
+		address.setAddressLineOne("12 Republic Road");
+		address.setAddressLineTwo("240 Surrey Avenue");
+		address.setCity("Sandton");
+		address.setState("Gauteng");
+		address.setCountry("South Africa");
+		address.setPostalCode("8679");
+		address.setBilling(true);
+		
+		//link the user with the address using the user id
+		address.setUserId(user.getId());
+		
+		//add the address
+		assertEquals("Failed to add address!", true, userDAO.addAddress(address));
+		
+		if(user.getRole().equals("USER")) {
+			
+			//create a booking for the user
+			booking = new Booking();
+			booking.setUser(user);
+			
+			//add the booking
+			assertEquals("Failed to add booking!", true, userDAO.addBooking(booking));
+			
+			address = new Address();
+			address.setAddressLineOne("12 Republic Road");
+			address.setAddressLineTwo("240 Surrey Avenue");
+			address.setCity("Sandton");
+			address.setState("Gauteng");
+			address.setCountry("South Africa");
+			address.setPostalCode("8679");
+			//set booking to be true
+			address.setBooked(true);
+			
+			//link it with the user
+			address.setUserId(user.getId());
+			
+			//add the booking
+			assertEquals("Failed to add booking!", true, userDAO.addAddress(address));
+			
+		}
+		
+		
 	}
 
 }

@@ -32,15 +32,15 @@ VALUES ('George','Sikhundla', 'ADMIN', true, '201356', 'sikhundla100@gmail.com',
 
 INSERT INTO user_detail
 (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('John','Smith', 'CLIENT', true, '12345', 'jsmith@gmail.com', '0123456789');
+VALUES ('John','Smith', 'USER', true, '12345', 'jsmith@gmail.com', '0123456789');
 
 INSERT INTO user_detail
 (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Sam','Mahlangu', 'CLIENT', true, '54321', 'smahlangu10@gmail.com', '0718934796');
+VALUES ('Sam','Mahlangu', 'USER', true, '54321', 'smahlangu10@gmail.com', '0718934796');
 
 INSERT INTO user_detail
 (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Jenny','Williams', 'CLIENT', true, '88888', 'jennyw@gmail.com', '0931234768');
+VALUES ('Jenny','Williams', 'USER', true, '88888', 'jennyw@gmail.com', '0931234768');
 
 
 
@@ -90,6 +90,18 @@ CREATE TABLE address(
 	
 	CONSTRAINT pk_address_id PRIMARY KEY (id),
 	CONSTRAINT fk_user_address_id FOREIGN KEY (user_id) REFERENCES user_detail (id),
+
+);
+
+CREATE TABLE booking(
+
+	id IDENTITY,
+	user_id INT,
+	grand_total DECIMAL(10, 2),
+	booking_lines INT,
+	
+	CONSTRAINT pk_booking_id PRIMARY KEY (id),
+	CONSTRAINT fk_user_booking_id FOREIGN KEY (user_id) REFERENCES user_detail (id),
 
 );
 
