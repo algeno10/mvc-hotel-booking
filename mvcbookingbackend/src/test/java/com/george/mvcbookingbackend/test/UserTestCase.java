@@ -127,7 +127,7 @@ public class UserTestCase {
 		assertEquals("Failed to update booking!", true, userDAO.updateBooking(booking));
 	} */
 	
-	@Test
+/*	@Test
 	public void testAddAddress() {
 		
 		//we need to add a user
@@ -173,5 +173,30 @@ public class UserTestCase {
 		address.setUser(user);		
 				
 		assertEquals("Failed to add booking address!", true, userDAO.addAddress(address));
-	}
+	} */
+	
+/*	@Test
+	public void testAddAddress() {
+		
+		user = userDAO.getByEmail("henryf@gmail.com");
+		
+		//adding the booking address
+		address = new Address();
+		address.setAddressLineOne("13 Republic Road");
+		address.setAddressLineTwo("241 Surrey Avenue");
+		address.setCity("Nelspruit");
+		address.setState("Mpumalanga");
+		address.setCountry("South Africa");
+		address.setPostalCode("8679");
+		//set booking to be true
+		address.setBooked(true);
+				
+		//attach the user to the address
+		address.setUser(user);		
+						
+		assertEquals("Failed to add booking address!", true, userDAO.addAddress(address));
+		
+	} */
+	
+	
 }
