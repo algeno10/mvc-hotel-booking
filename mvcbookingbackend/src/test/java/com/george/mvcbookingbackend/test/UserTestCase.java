@@ -198,5 +198,19 @@ public class UserTestCase {
 		
 	} */
 	
+	@Test
+	public void testGetAddress() {
+		
+		user = userDAO.getByEmail("	henryf@gmail.com");
+		
+		assertEquals("Failed to fetch the list of address and the size does not match!", 2, 
+				userDAO.listBookingAddress(user).size());
+		
+		assertEquals("Failed to fetch the booking of address and the size does not match!", "Sandton", 
+				userDAO.getBookingAddress(user).getCity());
+		
+		
+	}
+	
 	
 }

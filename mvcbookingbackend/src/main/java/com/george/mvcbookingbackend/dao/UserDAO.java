@@ -14,6 +14,11 @@ public interface UserDAO {
 	
 	//add an address
 	boolean addAddress(Address address);
+	
+	//alternative
+	//Address getBookingAddress(int userId);
+	//List <Address> listBookingAddress(int userId);
+	
 	Address getBookingAddress(User user);
 	List <Address> listBookingAddress(User user);
 	
