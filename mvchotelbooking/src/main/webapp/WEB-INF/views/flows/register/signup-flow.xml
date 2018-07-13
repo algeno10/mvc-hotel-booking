@@ -5,10 +5,15 @@
                           http://www.springframework.org/schema/webflow/spring-webflow.xsd">
                           
  	<!-- is the start state -->  
- 	<view-state id="personal" view="flows/register/signup-personal"></view-state>   
+ 	<view-state id="personal" view="flows/register/signup-personal"></view-state>
+ 	
+ 	<view-state id="billing" view="flows/register/signup-billing"></view-state> 
+ 	
+ 	<view-state id="confirm" view="flows/register/signup-confirm"></view-state> 
  	
  	<!-- end state -->
  	<end-state id="home" view="externalRedirect:contextRelative:/"/>
+ 	<end-state id="success" view="flows/register/signup-success"/> 
  	           
 	<!-- Global Transition -->
 	<global-transitions>
