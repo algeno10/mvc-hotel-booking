@@ -22,6 +22,7 @@
             
             <div class="panel-footer">
               <!-- anchor to move to the edit of personal details -->
+               <a href="${flowExecutionUrl}&_eventId_personal" class="btn btn-primary">Edit</a>
             </div>
           </div>
         </div>
@@ -44,6 +45,7 @@
           
           <div class="panel-footer">
             <!-- anchor to move to the edit of the address-->
+             <a href="${flowExecutionUrl}&_eventId_billing" class="btn btn-primary">Edit</a>
           </div>
           
         </div>
