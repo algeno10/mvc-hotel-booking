@@ -136,6 +136,7 @@ input:checked + .slider:before{
 	transform: translateX(20px);
 }
 
-.geo{
-	text-align:center
+.btn-george {
+	background-color: #e7e7e7; 
+	color: black;
 }

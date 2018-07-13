@@ -10,7 +10,7 @@
    			<div class="panel panel-primary">
    			
    				<div class="panel-heading">
-   					<h4>Sign Up - Personal</h4>
+   					<h4 align="center">Sign Up - Personal</h4>
    				
    				<div class="panel-body">
    				
@@ -81,7 +81,7 @@
    						<div class="form-group">
    							<div class="col-md-offset-4 col-md-8">
    								<!-- Submit button inside the form -->
-   								<button type="submit" class="btn btn-primary"
+   								<button type="submit" class="btn btn-primary btn-george"
    								  name="_eventId_billing">
    								  
    								  Next - Billing <span class="glyphicon glyphicon-chevron-right"></span>
