@@ -1,9 +1,13 @@
 package com.george.booking.model;
 
+import java.io.Serializable;
+
 import com.george.mvcbookingbackend.dto.Address;
 import com.george.mvcbookingbackend.dto.User;
 
-public class RegisterModel {
+public class RegisterModel implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private User user;
 	private Address billing;
