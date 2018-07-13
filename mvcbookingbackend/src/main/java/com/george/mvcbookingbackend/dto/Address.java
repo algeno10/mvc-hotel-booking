@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Address implements Serializable{
@@ -20,29 +20,25 @@ public class Address implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	//-----------------
-	@ManyToOne
-	private User user;
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	//----------------
+	@NotBlank(message = "Please enter address line one!")
 	@Column(name ="address_line_one")
 	private String addressLineOne;
+	@NotBlank(message = "Please enter address line two!")
 	@Column(name ="address_line_two")
 	private String addressLineTwo;
+	@NotBlank(message = "Please enter City!")
 	private String city;
+	@NotBlank(message = "Please enter State!")
 	private String state;
+	@NotBlank(message = "Please enter country!")
 	private String country;
 	@Column(name="postal_code")
+	@NotBlank(message = "Please enter Postal Code!")
 	private String postalCode;
 	private boolean booked;
 	private boolean billing;
+	@Column(name = "user_id")
+	private int userId;
 	
 	
 	/*
@@ -102,16 +98,26 @@ public class Address implements Serializable{
 	public void setBilling(boolean billing) {
 		this.billing = billing;
 	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
 	
 	/*
 	 * toString for logging and debugging activity
 	 * */
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", user=" + user + ", addressLineOne=" + addressLineOne + ", addressLineTwo="
-				+ addressLineTwo + ", city=" + city + ", state=" + state + ", country=" + country + ", postalCode="
-				+ postalCode + ", booked=" + booked + ", billing=" + billing + "]";
+		return "Address [id=" + id + ", addressLineOne=" + addressLineOne + ", addressLineTwo=" + addressLineTwo
+				+ ", city=" + city + ", state=" + state + ", country=" + country + ", postalCode=" + postalCode
+				+ ", booked=" + booked + ", billing=" + billing + "]";
 	}
+
+
+	
 	
 
 }
