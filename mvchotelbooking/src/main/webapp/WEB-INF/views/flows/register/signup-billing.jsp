@@ -78,6 +78,7 @@
    			 
    			 <div class="form-group">
    				<div class="col-md-8">
+   				    <div class="text-center">
    					<!-- Submit button for moving to the personal -->
    					<button type="submit" class="btn btn-primary btn-george"
    					   name="_eventId_personal">
@@ -88,8 +89,9 @@
    					<!-- Submit button for moving to the confirm -->
    					<button type="submit" class="btn btn-primary btn-george"
    					   name="_eventId_confirm">
-   						Next - Confirm <span class="glyphicon glyphicon-chevron-left"></span> 
+   						Next - Confirm <span class="glyphicon glyphicon-chevron-right"></span> 
    					</button>
+   					</div>
    				</div>
    			 </div>
            
