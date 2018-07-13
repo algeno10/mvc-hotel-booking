@@ -11,7 +11,6 @@
    			
    				<div class="panel-heading">
    					<h4>Sign Up - Personal</h4>
-   				</div>
    				
    				<div class="panel-body">
    				
@@ -74,7 +73,7 @@
    									<sf:radiobutton path="role" value="USER" checked="checked"/>User
    								</label>
    								<label class="radio-inline">
-   									<sf:radiobutton path="role" value="ADMIN"/>Admin
+   									<sf:radiobutton path="role" value="CLIENT"/>Client
    								</label>
    							</div>
    						</div>
@@ -82,6 +81,12 @@
    						<div class="form-group">
    							<div class="col-md-offset-4 col-md-8">
    								<!-- Submit button inside the form -->
+   								<button type="submit" class="btn btn-primary"
+   								  name="_eventId_billing">
+   								  
+   								  Next - Billing <span class="glyphicon glyphicon-chevron-right"></span>
+   								  
+   								</button>
    							</div>
    						</div>
    					

@@ -1,5 +1,7 @@
 package com.george.mvcbookingbackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Booking {
+public class Booking implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	/*
 	 * private fields for address
