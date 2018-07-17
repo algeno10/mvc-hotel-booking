@@ -1,6 +1,7 @@
 package com.george.mvcbookingbackend.dto;
 
 import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "user_detail")
@@ -23,13 +25,18 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name="first_name")
+	@NotBlank(message = "Enter the first name!")
 	private String firstName;
 	@Column(name="last_name")
+	@NotBlank(message = "Enter the last name!")
 	private String lastName;
+	@NotBlank(message = "Enter the email!")
 	private String email;
 	@Column(name="contact_number")
+	@NotBlank(message = "Enter the the contact number!")
 	private String contactNumber;
 	private String role;
+	@NotBlank(message = "Enter the password!")
 	private String password;
 	private boolean enabled = true;
 	
