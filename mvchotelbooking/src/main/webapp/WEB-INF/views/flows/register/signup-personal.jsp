@@ -70,6 +70,16 @@
    							</div>
    						</div>
    						
+   						<!-- Confirm password -->
+   						<div class="form-group">
+   							<label class="control-label col-md-4">Confirm Password:</label>
+   							<div class="col-md-8">
+   								<sf:input type="password" path="confirmPassword" class="form-control"
+   								placeholder="Re-enter Password"/>
+   								<sf:errors path="confirmPassword" cssClass="help-block" element="em"/>
+   							</div>
+   						</div>
+   						
    						<!-- Radio button using bootstrap class of radio-inline -->
    						<div class="form-group">
    							<label class="control-label col-md-4">Choose Role:</label>
