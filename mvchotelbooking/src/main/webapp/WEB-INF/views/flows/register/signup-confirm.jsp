@@ -19,22 +19,20 @@
             <div class="panel-body">
               <!-- Code to display the personal details -->
               <div class="text-center">
-                <h4>${registerModel.user.firstName} ${registerModel.user.lastName}</h4>
+                <h3>Name: <strong>${registerModel.user.firstName} ${registerModel.user.lastName}</strong></h3>
+                <h4>Email: <strong>${registerModel.user.email}</strong></h4>
+                <h4>Contact Number: <strong>${registerModel.user.contactNumber}</strong></h4>
+                <h4>Role: <strong>${registerModel.user.role}</strong></h4>
+                <p>
+                   <!-- anchor to move to the edit of personal details -->
+                   <a href="${flowExecutionUrl}&_eventId_personal" class="btn btn-primary">Edit</a>
                 
-                <h5>Email: ${registerModel.user.email}</h5>
-                
-                <h5>Contact Number: ${registerModel.user.contactNumber}</h5>
-                
-                <h5>Role: ${registerModel.user.role}</h5>
+                </p>
               
               </div>
               
             </div>
-            
-            <div class="panel-footer">
-              <!-- anchor to move to the edit of personal details -->
-               <a href="${flowExecutionUrl}&_eventId_personal" class="btn btn-primary">Edit</a>
-            </div>
+
           </div>
         </div>
       </div>
@@ -54,17 +52,18 @@
           
             <div class="text-center">
             	<!-- code to display the communication address -->
-            	<h4>${registerModel.billing.addressLineOne}</h4>
-            	<h4>${registerModel.billing.addressLineTwo}</h4>
-            	<h4>${registerModel.billing.city} - ${registerModel.billing.postalCode}</h4>
-				<h4>${registerModel.billing.state} - ${registerModel.billing.country}</h4>
+            	<p>${registerModel.billing.addressLineOne},</p>
+            	<p>${registerModel.billing.addressLineTwo},</p>
+            	<p>${registerModel.billing.city} - ${registerModel.billing.postalCode},</p>
+				<p>${registerModel.billing.state}</p>
+				<p>${registerModel.billing.country}</p>
+				<p>
+				  <!-- anchor to move to the edit of the address-->
+                  <a href="${flowExecutionUrl}&_eventId_billing" class="btn btn-primary">Edit</a>
+				</p>
              </div>
           </div>
           
-          <div class="panel-footer">
-            <!-- anchor to move to the edit of the address-->
-             <a href="${flowExecutionUrl}&_eventId_billing" class="btn btn-primary">Edit</a>
-          </div>
           
         </div>
       

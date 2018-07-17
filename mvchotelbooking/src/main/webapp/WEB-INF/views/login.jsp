@@ -106,6 +106,12 @@
     	          </div>
     	        </div>
     	        
+    	        <div class="panel-footer">
+		       	  <div class="text-right">
+		       		New User - <a href="./register/signup-personal.jsp">Register Here</a>
+		       	  </div>
+		       </div>
+    	        
     	        </form>
     	        </div>
     	        
