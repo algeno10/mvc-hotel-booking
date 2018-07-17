@@ -3,6 +3,7 @@ package com.george.booking.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.george.booking.model.RegisterModel;
@@ -16,6 +17,9 @@ public class RegisterHandler {
 	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	public RegisterModel init() {
 		
@@ -73,6 +77,9 @@ public class RegisterHandler {
 			booking.setUser(user);
 			user.setBooking(booking);
 		}
+		
+		//encode the password
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		
 		//save the user
 		userDAO.addUser(user);
