@@ -38,6 +38,29 @@
                     <li id="login">
                         <a href="${contextRoot}/login">Log-In</a>
                     </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)"
+                           class="btn btn-default dropdown-toggle"
+                           id="dropdownMenu1"
+                           data-toggle="dropdown">
+                           Full Name
+                           <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" >
+                        	<li>
+                        		<a href="${contextRoot}/booking">
+                        		    <span class="glyphicon glyphicon-plus"></span>
+                        		    <span class="badge">0</span>
+                        		     - R 0.0
+                        		</a>
+                        	</li>
+                        	<li class="divider" role="separator"></li>
+                        	
+                        	<li>
+                        		<a href="${contextRoot}/logout">Logout</a>
+                        	</li>
+                        </ul>
+                    </li>
                 </ul>
                 
                 
