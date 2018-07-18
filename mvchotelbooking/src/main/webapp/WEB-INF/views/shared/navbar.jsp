@@ -43,15 +43,16 @@
                            class="btn btn-default dropdown-toggle"
                            id="dropdownMenu1"
                            data-toggle="dropdown">
-                           Full Name
+                           
+                           ${userModel.fullName}
                            <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" >
                         	<li>
                         		<a href="${contextRoot}/booking">
                         		    <span class="glyphicon glyphicon-plus"></span>
-                        		    <span class="badge">0</span>
-                        		     - R 0.0
+                        		    <span class="badge">${userModel.booking.bookingLines}</span>
+                        		     - R ${userModel.booking.grandTotal}
                         		</a>
                         	</li>
                         	<li class="divider" role="separator"></li>
