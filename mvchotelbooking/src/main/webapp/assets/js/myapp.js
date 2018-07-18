@@ -101,7 +101,15 @@ $(function() {
 							str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-plus"></span></a>';
 						} else{
 							
-							str += '<a href="'+window.contextRoot+ '/booking/add/'+data+'/property" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>';
+							if(userRole == 'ADMIN'){
+								
+								str += '<a href="'+window.contextRoot+ '/manage/'+data+'/property" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span></a>';
+								
+							} else{
+								
+								str += '<a href="'+window.contextRoot+ '/booking/add/'+data+'/property" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>';
+								
+							}
 							
 						}
 					    

@@ -59,7 +59,7 @@
 				
 			</c:choose>
 			
-			
+			<security:authorize access="hasAuthority('USER')">
 			<c:choose>
 			
 				<c:when test="${property.quantity < 1}">
@@ -76,7 +76,14 @@
 				</c:otherwise>
 				
 			</c:choose>
+			</security:authorize>
 			
+			<security:authorize access="hasAuthority('ADMIN')">
+			
+				<a href="${contextRoot}/manage/${property.id}/property" class="btn btn-warning">
+				<span class="glyphicon glyphicon-pencil"></span>Edit</a>
+			
+			</security:authorize>
 			
 	        <a href="${contextRoot}/show/all/property" class="btn btn-primary">
 			Back</a>
