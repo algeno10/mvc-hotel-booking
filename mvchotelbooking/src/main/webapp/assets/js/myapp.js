@@ -22,17 +22,6 @@ $(function() {
 	
 	}
 	
-	//to tackle the csfr token
-	var token = $('meta[name="_csfr"]').attr('content');
-	var header = $('meta[name="_csfr_header"]').attr('content');
-	
-	if(token.length > 0 && header.length > 0){	
-		//set the token header for the ajax request
-		$(document).ajaxSend(function(e, xhr, options) {
-			xhr.setRequestHeader(header, token);
-		});
-	}
-	
 	//code for jquery dataTable
 	
 	var $table = $('#propertyListTable');
@@ -101,15 +90,7 @@ $(function() {
 							str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-plus"></span></a>';
 						} else{
 							
-							if(userRole == 'ADMIN'){
-								
-								str += '<a href="'+window.contextRoot+ '/manage/'+data+'/property" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span></a>';
-								
-							} else{
-								
-								str += '<a href="'+window.contextRoot+ '/booking/add/'+data+'/property" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>';
-								
-							}
+							str += '<a href="'+window.contextRoot+ '/booking/add/'+data+'/property" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>';
 							
 						}
 					    
@@ -321,48 +302,5 @@ var $propertyTable = $('#propertyTable');
 	}
 	
 	//----------------------------
-	//validation for login form
-	var $loginForm = $('#loginForm');
-	
-	if($loginForm.length){
-		
-		$loginForm.validate({
-			
-			rules: {
-				
-				username: {
-					
-					required: true,
-					email: true
-				},
-				
-				password: {
-					required: true
-				}
-			},
-			
-			messages : {
-				
-				username : {
-					required: 'Please enter the password!',
-					email: 'Please enter the valid email address'
-				},
-				
-				password : {
-					
-					required: 'Please enter the password!'
-				}
-			},
-			errorElement : 'em',
-			errorPlacement: function(error, element){
-				//add the class of help-block
-				error.addClass('help-block');				
-				//add the error element after the input element
-				error.insertAfter(element);
-			}	
-		});
-		
-		
-	}
 	
 });
