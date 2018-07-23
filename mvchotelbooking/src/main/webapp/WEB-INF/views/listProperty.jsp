@@ -48,38 +48,51 @@
            
               <div class="col-xs-12">
               
-                   <table id="propertyListTable" class="table table-striped table-borderd">
+              	<div class ="container-fluid">
+              			
+              			<div class="table-responsive">
+              			
+              				<table id="propertyListTable" class="table table-striped table-borderd">
                        
-                       <thead>
-                       
-                         <tr>
-                             
-                             <th></th>
-                             <th>Name</th>
-                             <th>Address</th>
-                             <th>Price</th>
-                             <th>Room(s) Available</th>
-                             <th></th>
-                             
-                         </tr>
-                         
-                       </thead>
-                       
-                       <tfoot>
-                       
-                         <tr>
-                             
-                             <th></th>
-                             <th>Name</th>
-                             <th>Address</th>
-                             <th>Price</th>
-                             <th>Room(s) Available</th>
-                             <th></th>
-                             
-                         </tr>
-                         
-                       </tfoot>
-                   </table>
+		                       <thead>
+		                       
+		                         <tr>
+		                             
+		                             <th></th>
+		                             <th>Name</th>
+		                             <th>Address</th>
+		                             <th>Price</th>
+		                             <th>Room(s) Available</th>
+		                             <th></th>
+		                             
+		                         </tr>
+		                         
+		                       </thead>
+		                       
+		                       <tfoot>
+		                       
+		                         <tr>
+		                             
+		                             <th></th>
+		                             <th>Name</th>
+		                             <th>Address</th>
+		                             <th>Price</th>
+		                             <th>Room(s) Available</th>
+		                             <th></th>
+		                             
+		                         </tr>
+		                         
+		                       </tfoot>
+		                   </table>
+              			
+              			
+              			
+              			</div>
+              		
+              		
+    			</div>
+              
+                   
                    
               </div>
               
